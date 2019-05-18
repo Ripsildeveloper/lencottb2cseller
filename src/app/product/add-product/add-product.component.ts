@@ -182,7 +182,7 @@ export class AddProductComponent implements OnInit {
       this.sizeForms.push(data);
     }
   } */
-  
+
 
   selectedSize(size, qty, skuCode) {
     this.mfgQtyError = false;
