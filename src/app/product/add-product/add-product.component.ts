@@ -98,6 +98,11 @@ export class AddProductComponent implements OnInit {
   mainCategorySelected = false;
   subCategorySelected = false;
   sizeError = false;
+<<<<<<< HEAD
+=======
+  moqs = ['MOQ'];
+  moqTrue: number;
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
   ratioTotal = 0;
   sizeProduct: any = [];
   skuCodeVerifyTrue = false;
@@ -138,11 +143,31 @@ export class AddProductComponent implements OnInit {
       mfdQty: ['', priceValue],
       sizeQty: ['', priceValue],
       sizeName: ['', priceValue],
+<<<<<<< HEAD
+=======
+      moqProduct: ['', priceValue],
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
       ratio: ['', priceValue]
       /*  sizeVariant: this.fb.array([
        ]) */
     });
   }
+<<<<<<< HEAD
+=======
+  selecteMoq(e) {
+    /* this.moqTrue = !this.moqTrue; */
+    if (e.source.checked && e.value === 'MOQ') {
+      /* console.log(e); */
+      this.moqTrue = e.value;
+      this.productForm.get('moqProduct').enable();
+      this.productForm.controls.moqProduct.reset();
+    } else {
+      this.moqTrue = e.value;
+      this.productForm.get('moqProduct').disable();
+      this.productForm.controls.moqProduct.setValue(1);
+    }
+  }
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
   getProductSettings() {
     this.productService.getProductSettings().subscribe(data => {
       this.productSettingsModel = data;
@@ -184,17 +209,37 @@ export class AddProductComponent implements OnInit {
       this.sizeForms.push(data);
     }
   } */
+<<<<<<< HEAD
   
 
   selectedSize(size, qty, skuCode) {
+=======
+  moqValidation() {
+    let total = 0;
+    for (let i = 0; i < this.confirmSize.length; i++) {
+      total += this.confirmSize[i].ratio * this.productForm.controls.moqProduct.value;
+    }
+    return total;
+  }
+
+  selectedSize(size, qty, skuCode, ratiodata) {
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
     this.mfgQtyError = false;
     const sizeData = {
       sizeName: size,
       sizeQty: qty,
       skuCode: skuCode,
+<<<<<<< HEAD
     };
     this.selectedSizeDetails(sizeData);
     /* const newTotal: number = ratiodata * this.productForm.controls.moqProduct.value; */
+=======
+      ratio: ratiodata
+    };
+    this.selectedSizeDetails(sizeData);
+    /* const newTotal: number = ratiodata * this.productForm.controls.moqProduct.value; */
+    this.ratioTotal = +this.moqValidation();
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
     /* if (value <= this.productForm.controls.mfdQty.value) {
     } else {
       this.mfgQtyError = true;
@@ -254,7 +299,11 @@ export class AddProductComponent implements OnInit {
     if (index > -1) {
       this.confirmSize.splice(index, 1);
     }
+<<<<<<< HEAD
     /* this.ratioTotal = +this.moqValidation(); */
+=======
+    this.ratioTotal = +this.moqValidation();
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
   }
 
   addSize(e, sizeData, i) {
@@ -394,6 +443,10 @@ export class AddProductComponent implements OnInit {
     this.productModel.color = this.productForm.controls.color.value;
     /* this.productModel.mfdQty = this.productForm.controls.mfdQty.value; */
     this.productModel.styleCode = this.productForm.controls.styleCode.value.toUpperCase();
+<<<<<<< HEAD
+=======
+    this.productModel.skuCode = this.productForm.controls.skuCode.value.toUpperCase();
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
     this.productModel.superCategoryId = this.supCategoryId;
     this.productModel.mainCategoryId = this.mainCategoryId;
     this.productModel.subCategoryId = this.subCategoryId;
@@ -401,6 +454,10 @@ export class AddProductComponent implements OnInit {
     this.productModel.height = this.productForm.controls.height.value;
     this.productModel.weight = this.productForm.controls.weight.value;
     this.productModel.occassion = this.productForm.controls.occassion.value;
+<<<<<<< HEAD
+=======
+    this.productModel.moq = this.productForm.controls.moqProduct.value;
+>>>>>>> e3a0ea67d1a5f738a38e1638bb7476413ad5f053
     this.productModel.spPrice = this.productForm.controls.sp.value;
     this.productModel.mrpPrice = this.productForm.controls.mrp.value;
     // detials
