@@ -35,8 +35,7 @@ export class ProductDetailsViewComponent implements OnInit {
     this.editProductForm = this.fb.group({
       regionName: [''],
       editQty: [''],
-      editPrice: [''],
-      editMfdQty: ['']
+      editPrice: ['']
     });
   }
   /* editQty(elem) {
